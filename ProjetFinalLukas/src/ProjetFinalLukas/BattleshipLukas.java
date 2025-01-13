@@ -987,12 +987,3 @@ public class BattleshipLukas {
 		int j=0;
 	}
 }
-/*
- * Créer une classe
- * 
- * Action performed
- * 
- * Action listener
- * 
- * 
- */
