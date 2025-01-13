@@ -1,6 +1,4 @@
 package ProjetFinalLukas;
-import javax.swing.*;
-import java.awt.*;
 import java.util.Scanner;
 
 public class BattleshipLukas {
@@ -990,7 +988,7 @@ public class BattleshipLukas {
 	}
 }
 /*
- * Créer une classe
+ * CrÃ©er une classe
  * 
  * Action performed
  * 
