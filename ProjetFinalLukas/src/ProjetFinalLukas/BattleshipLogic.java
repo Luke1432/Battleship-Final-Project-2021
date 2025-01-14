@@ -1,8 +1,8 @@
-package ProjetFinalLukas;
+package ProjetFinalLukas
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BattleshipLogic {
+public class Test {
 
 	public static void main(String[] args) {
 		Scanner in=new Scanner(System.in);
@@ -15,16 +15,16 @@ public class BattleshipLogic {
 		}
 		int j=1;
 		int hitCount=0;
-		int row=0;
-		int column=0;
+		int row;
+		int column;
 		do {
 			System.out.println("Guess #"+j);
-		System.out.println("Guess where the ship is: ");
-		System.out.print("Column: ");
-		column=in.nextInt();
-		System.out.println();
-		System.out.print("Row: ");
-		row=in.nextInt();
+            System.out.println("Guess where the ship is: ");
+            System.out.print("Column: ");
+            column=in.nextInt();
+            System.out.println();
+            System.out.print("Row: ");
+            row=in.nextInt();
 		
 		if(hitOrMiss(column,row, coordinates, allColumnHits, allRowHits)) {
 			hitCount++;
@@ -33,61 +33,6 @@ public class BattleshipLogic {
 			System.out.println("You missed");
 			
 		}
-		
-			//  ____________ ____________ ____________ ____________ ____________
-			// | / / / / / /|            |            |            |            |
-			// |/ / / / / / |            |            |            |            |
-			// | / / / / / /|            |            |            |            |
-			// |/ / / / / / |            |            |            |            |
-			// |_/_/_/_/_/_/|____________|____________|____________|____________|
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |____________|____________|____________|____________|____________|
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |____________|____________|____________|____________|____________|
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |____________|____________|____________|____________|____________|
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |            |            |            |            |            |
-			// |____________|____________|____________|____________|____________|
-		
-				//  ____________ ____________ ____________ ____________ ____________
-				// |            | / / / / / /|            |            |            |
-				// |            |/ / / / / / |            |            |            |
-				// |            | / / / / / /|            |            |            |
-				// |            |/ / / / / / |            |            |            |
-				// |____________|/_/_/_/_/_/_|____________|____________|____________|
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |____________|____________|____________|____________|____________|
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |____________|____________|____________|____________|____________|
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |____________|____________|____________|____________|____________|
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |            |            |            |            |            |
-				// |____________|____________|____________|____________|____________|
-		
 		
 		j++;
 		}while(j<10 && hitCount!=5);
@@ -105,17 +50,14 @@ public class BattleshipLogic {
 	}public static boolean hitOrMiss(int column, int row, int[] coordinates, ArrayList<Integer> allColumnHits, ArrayList<Integer> allRowHits) {
 		
 		boolean hit=false;
-		if(allRowHits.contains(row) && allColumnHits.contains(column)){
-
-	for(int i=0; i<coordinates.length; i++) {
-		if(allRowHits.get(i)==row && allColumnHits.get(i)==column) {
-			hit=false;
-			System.out.println("You already hit this square");
-			return hit;
-		}else {
-			
-		}
-	}
+		if (allRowHits.contains(row) && allColumnHits.contains(column)) {
+            for (int i = 0; i < allRowHits.size(); i++) { // Iterate over the size of the lists
+                if (allRowHits.get(i) == row && allColumnHits.get(i) == column) {
+                    hit = false;
+                    System.out.println("You already hit this square");
+                    return hit;
+                }
+            }
 		}
 		else {
 		if(column==coordinates[0]) {
@@ -175,7 +117,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -199,7 +141,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -223,7 +165,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -245,7 +187,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException  e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -266,7 +208,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -285,7 +227,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -303,7 +245,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -320,7 +262,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_______________________/       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -336,7 +278,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_______________________/       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -351,7 +293,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_______________________/       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -368,7 +310,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_______________________/       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -384,7 +326,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\____/       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -399,7 +341,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\  \\___/       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -415,7 +357,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\ \\____/       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		i++;
@@ -435,7 +377,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                 *             *        ");
@@ -450,7 +392,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                 |             /        ");
@@ -465,7 +407,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		for(int q=0; q<5; q++) {
@@ -496,7 +438,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			System.out.println("                                        ");
@@ -520,7 +462,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			System.out.println("                                        ");
@@ -544,7 +486,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			System.out.println("                                        ");
@@ -568,7 +510,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			
@@ -591,7 +533,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			System.out.println("                                        ");
@@ -610,7 +552,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			System.out.println("                                        ");
@@ -628,7 +570,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			
@@ -645,7 +587,7 @@ public class BattleshipLogic {
 			System.out.println("       \\______________________\\       ");
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			System.out.println("                                        ");
@@ -661,7 +603,7 @@ public class BattleshipLogic {
 			System.out.println("       \\______________________\\       ");
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			
@@ -676,11 +618,10 @@ public class BattleshipLogic {
 			System.out.println("       \\______________________\\       ");
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			
-			int k=0;
 			int i = 0;
 			do {
 			System.out.println("                                        ");
@@ -694,7 +635,7 @@ public class BattleshipLogic {
 			System.out.println("       \\_______________/_______\\       ");
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			
@@ -710,7 +651,7 @@ public class BattleshipLogic {
 			System.out.println("       \\_________________/ /______\\       ");
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			
@@ -725,7 +666,7 @@ public class BattleshipLogic {
 			System.out.println("       \\_________________/  \\_____\\       ");
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			
@@ -741,7 +682,7 @@ public class BattleshipLogic {
 			System.out.println("       \\_________________/  /     \\       ");
 			try{
 				Thread.sleep(100);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			i++;
@@ -761,7 +702,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(200);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			System.out.println("                 *             *        ");
@@ -776,7 +717,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(200);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			System.out.println("                 |             /        ");
@@ -792,7 +733,7 @@ public class BattleshipLogic {
 			
 			try{
 				Thread.sleep(200);
-			}catch(Exception e) {
+			}catch(InterruptedException e) {
 				System.out.println();
 			}
 			for(int q=0; q<5; q++) {
@@ -824,7 +765,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -848,7 +789,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -872,7 +813,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -896,7 +837,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -920,7 +861,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -939,7 +880,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -957,7 +898,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -974,7 +915,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\          ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -990,7 +931,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\          ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1005,7 +946,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\          ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1024,7 +965,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1040,7 +981,7 @@ public class BattleshipLogic {
 		System.out.println("       \\______________ _/ /______\\       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1056,7 +997,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1073,7 +1014,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		i++;
@@ -1093,7 +1034,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                 *             *        ");
@@ -1108,7 +1049,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                 |             /        ");
@@ -1123,7 +1064,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		for(int q=0; q<5; q++) {
@@ -1156,7 +1097,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1180,7 +1121,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1204,7 +1145,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1228,7 +1169,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1252,7 +1193,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1271,7 +1212,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1289,7 +1230,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1306,7 +1247,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\          ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1322,7 +1263,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\          ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1337,7 +1278,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___________________\\          ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1356,7 +1297,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1372,7 +1313,7 @@ public class BattleshipLogic {
 		System.out.println("       \\______________ _/ /______\\       ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1388,7 +1329,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1405,7 +1346,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		i++;
@@ -1425,7 +1366,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                 *             *        ");
@@ -1440,7 +1381,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                 |             /        ");
@@ -1455,7 +1396,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		for(int q=0; q<5; q++) {
@@ -1487,7 +1428,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1511,7 +1452,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1538,7 +1479,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1562,7 +1503,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1587,7 +1528,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1606,7 +1547,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1624,7 +1565,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1641,7 +1582,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_______________/               ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1657,7 +1598,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_______________/               ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1673,11 +1614,10 @@ public class BattleshipLogic {
 		System.out.println("       \\_______________/               ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
-		int k=0;
 		int i = 0;
 		do {
 		System.out.println("                                        ");
@@ -1692,7 +1632,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1708,7 +1648,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/ /_____/               ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1724,7 +1664,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		
@@ -1741,7 +1681,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		i++;
@@ -1761,7 +1701,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                 *             *        ");
@@ -1776,7 +1716,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                 |             /        ");
@@ -1791,7 +1731,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		for(int q=0; q<5; q++) {
@@ -1815,7 +1755,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("          OOO                           ");
@@ -1829,7 +1769,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("         OOOOO                          ");
@@ -1843,7 +1783,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("          OOO                           ");
@@ -1857,7 +1797,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("           |                            ");
@@ -1871,7 +1811,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("            /                           ");
@@ -1885,7 +1825,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("            x                           ");
@@ -1899,7 +1839,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(200);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1913,7 +1853,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1927,7 +1867,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                        ");
@@ -1941,7 +1881,7 @@ public class BattleshipLogic {
 		System.out.println("       \\_________/                     ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                          ");
@@ -1955,7 +1895,7 @@ public class BattleshipLogic {
 		System.out.println("       \\___\\/______/                    ");
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("                                          ");
@@ -1969,7 +1909,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("              v      v              v      ");
@@ -1984,7 +1924,7 @@ public class BattleshipLogic {
 		
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 		System.out.println("     v        v     v                 v    ");
@@ -1997,368 +1937,401 @@ public class BattleshipLogic {
 		System.out.println("                                           ");
 		System.out.println("     v                       v             ");
 		System.out.println("         v           v               v   v ");
-		System.out.println(" \r\n" + 
-				" \r\n" + 
-				"\r\n" + 
-				"\r\n" + 
-				"\r\n" + 
-				"");
+		System.out.println("""
+                                    \r
+                                    \r
+                                   \r
+                                   \r
+                                   \r
+                                   """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("_. \r\n" + 
-				" \r\n" + 
-				"\r\n" + 
-				"\r\n" + 
-				"\r\n" + 
-				"");
+		System.out.println("""
+                                   _. \r
+                                    \r
+                                   \r
+                                   \r
+                                   \r
+                                   """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println(" ._. \r\n" + 
-				" | \r\n" + 
-				"| \r\n" + 
-				"\r\n" + 
-				"\r\n" + 
-				"/ ");
+		System.out.println("""
+                                    ._. \r
+                                    | \r
+                                   | \r
+                                   \r
+                                   \r
+                                   / """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("_. ._. \r\n" + 
-				" | | \r\n" + 
-				"| | \r\n" + 
-				"| \r\n" + 
-				"_ \r\n" + 
-				" \\/ ");
+		System.out.println("""
+                                   _. ._. \r
+                                    | | \r
+                                   | | \r
+                                   | \r
+                                   _ \r
+                                    \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println(" ._. ._. \r\n" + 
-				" | | | \r\n" + 
-				"| | | \r\n" + 
-				" \\| \r\n" + 
-				" __ \r\n" + 
-				"/  \\/ ");
+		System.out.println("""
+                                    ._. ._. \r
+                                    | | | \r
+                                   | | | \r
+                                    \\| \r
+                                    __ \r
+                                   /  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("_. ._. ._. \r\n" + 
-				" | | | | \r\n" + 
-				"| | | | \r\n" + 
-				"|  \\| \r\n" + 
-				"_  __ \r\n" + 
-				" \\/  \\/ ");
+		System.out.println("""
+                                   _. ._. ._. \r
+                                    | | | | \r
+                                   | | | | \r
+                                   |  \\| \r
+                                   _  __ \r
+                                    \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println(" ._. ._. ._. \r\n" + 
-				" | | | | | \r\n" + 
-				"| | | | | \r\n" + 
-				" \\|  \\| \r\n" + 
-				" __  __ \r\n" + 
-				"/  \\/  \\/ ");
+		System.out.println("""
+                                    ._. ._. ._. \r
+                                    | | | | | \r
+                                   | | | | | \r
+                                    \\|  \\| \r
+                                    __  __ \r
+                                   /  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("   ._. ._. ._. \r\n" + 
-				" | | | | | | \r\n" + 
-				"| | | | | | \r\n" + 
-				"|  \\|  \\| \r\n" + 
-				"_  __  __ \r\n" + 
-				" \\/  \\/  \\/ ");
+		System.out.println("""
+                                      ._. ._. ._. \r
+                                    | | | | | | \r
+                                   | | | | | | \r
+                                   |  \\|  \\| \r
+                                   _  __  __ \r
+                                    \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("     ._. ._. ._. \r\n" + 
-				"   | | | | | | \r\n" + 
-				"  | | | | | | \r\n" + 
-				" \\|  \\|  \\| \r\n" + 
-				" __  __  __ \r\n" + 
-				"   \\/  \\/  \\/ ");
+		System.out.println("""
+                                        ._. ._. ._. \r
+                                      | | | | | | \r
+                                     | | | | | | \r
+                                    \\|  \\|  \\| \r
+                                    __  __  __ \r
+                                      \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("     ._. ._. ._. \r\n" + 
-				"   | | | | | | \r\n" + 
-				" \\  | | | | | | \r\n" + 
-				"\\  \\|  \\|  \\| \r\n" + 
-				"/  __  __  __ \r\n" + 
-				"\\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                        ._. ._. ._. \r
+                                      | | | | | | \r
+                                    \\  | | | | | | \r
+                                   \\  \\|  \\|  \\| \r
+                                   /  __  __  __ \r
+                                   \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("       ._. ._. ._. \r\n" + 
-				"__   | | | | | | \r\n" + 
-				"   \\  | | | | | | \r\n" + 
-				"  \\  \\|  \\|  \\| \r\n" + 
-				"  /  __  __  __ \r\n" + 
-				"  \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                          ._. ._. ._. \r
+                                   __   | | | | | | \r
+                                      \\  | | | | | | \r
+                                     \\  \\|  \\|  \\| \r
+                                     /  __  __  __ \r
+                                     \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("       ._. ._. ._. \r\n" + 
-				"__   | | | | | | \r\n" + 
-				"   \\  | | | | | | \r\n" + 
-				"  \\  \\|  \\|  \\| \r\n" + 
-				"  /  __  __  __ \r\n" + 
-				"  \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                          ._. ._. ._. \r
+                                   __   | | | | | | \r
+                                      \\  | | | | | | \r
+                                     \\  \\|  \\|  \\| \r
+                                     /  __  __  __ \r
+                                     \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("         ._. ._. ._. \r\n" + 
-				"____   | | | | | | \r\n" + 
-				"/    \\  | | | | | | \r\n" + 
-				" |  \\  \\|  \\|  \\| \r\n" + 
-				"_|  /  __  __  __ \r\n" + 
-				"    \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                            ._. ._. ._. \r
+                                   ____   | | | | | | \r
+                                   /    \\  | | | | | | \r
+                                    |  \\  \\|  \\|  \\| \r
+                                   _|  /  __  __  __ \r
+                                       \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("__         ._. ._. ._. \r\n" + 
-				"| ____   | | | | | | \r\n" + 
-				" |/    \\  | | | | | | \r\n" + 
-				"   |  \\  \\|  \\|  \\| \r\n" + 
-				"___|  /  __  __  __ \r\n" + 
-				"      \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                   __         ._. ._. ._. \r
+                                   | ____   | | | | | | \r
+                                    |/    \\  | | | | | | \r
+                                      |  \\  \\|  \\|  \\| \r
+                                   ___|  /  __  __  __ \r
+                                         \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println(" .__         ._. ._. ._. \r\n" + 
-				"__| ____   | | | | | | \r\n" + 
-				"/  |/    \\  | | | | | | \r\n" + 
-				" |   |  \\  \\|  \\|  \\| \r\n" + 
-				"_|___|  /  __  __  __ \r\n" + 
-				"        \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                    .__         ._. ._. ._. \r
+                                   __| ____   | | | | | | \r
+                                   /  |/    \\  | | | | | | \r
+                                    |   |  \\  \\|  \\|  \\| \r
+                                   _|___|  /  __  __  __ \r
+                                           \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("   .__         ._. ._. ._. \r\n" + 
-				"_|__| ____   | | | | | | \r\n" + 
-				"/ /  |/    \\  | | | | | | \r\n" + 
-				"|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"|__|___|  /  __  __  __ \r\n" + 
-				"          \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                      .__         ._. ._. ._. \r
+                                   _|__| ____   | | | | | | \r
+                                   / /  |/    \\  | | | | | | \r
+                                   |  |   |  \\  \\|  \\|  \\| \r
+                                   |__|___|  /  __  __  __ \r
+                                             \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("     .__         ._. ._. ._. \r\n" + 
-				"  _|__| ____   | | | | | | \r\n" + 
-				" \\/ /  |/    \\  | | | | | | \r\n" + 
-				" /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"/ |__|___|  /  __  __  __ \r\n" + 
-				"            \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                        .__         ._. ._. ._. \r
+                                     _|__| ____   | | | | | | \r
+                                    \\/ /  |/    \\  | | | | | | \r
+                                    /|  |   |  \\  \\|  \\|  \\| \r
+                                   / |__|___|  /  __  __  __ \r
+                                               \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("       .__         ._. ._. ._. \r\n" + 
-				" _  _|__| ____   | | | | | | \r\n" + 
-				"\\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"   /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"              \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                          .__         ._. ._. ._. \r
+                                    _  _|__| ____   | | | | | | \r
+                                   \\/ \\/ /  |/    \\  | | | | | | \r
+                                      /|  |   |  \\  \\|  \\|  \\| \r
+                                   \\_/ |__|___|  /  __  __  __ \r
+                                                 \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("         .__         ._. ._. ._. \r\n" + 
-				"_  _  _|__| ____   | | | | | | \r\n" + 
-				"\\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"\\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                            .__         ._. ._. ._. \r
+                                   _  _  _|__| ____   | | | | | | \r
+                                   \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                        /|  |   |  \\  \\|  \\|  \\| \r
+                                   \\/\\_/ |__|___|  /  __  __  __ \r
+                                                   \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("           .__         ._. ._. ._. \r\n" + 
-				" __  _  _|__| ____   | | | | | | \r\n" + 
-				"\\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				" \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"  \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                  \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                              .__         ._. ._. ._. \r
+                                    __  _  _|__| ____   | | | | | | \r
+                                   \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                    \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                     \\/\\_/ |__|___|  /  __  __  __ \r
+                                                     \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("             .__         ._. ._. ._. \r\n" + 
-				"_  __  _  _|__| ____   | | | | | | \r\n" + 
-				"  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"/  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                    \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                                .__         ._. ._. ._. \r
+                                   _  __  _  _|__| ____   | | | | | | \r
+                                     \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                   /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                       \\/\\_/ |__|___|  /  __  __  __ \r
+                                                       \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("               .__         ._. ._. ._. \r\n" + 
-				" __  __  _  _|__| ____   | | | | | | \r\n" + 
-				" |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"_/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                      \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                                  .__         ._. ._. ._. \r
+                                    __  __  _  _|__| ____   | | | | | | \r
+                                    |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                     /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   _/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                         \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("                 .__         ._. ._. ._. \r\n" + 
-				"__ __  __  _  _|__| ____   | | | | | | \r\n" + 
-				"|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				" |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"___/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                        \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                                    .__         ._. ._. ._. \r
+                                   __ __  __  _  _|__| ____   | | | | | | \r
+                                   |  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                    |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   ___/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                           \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("                   .__         ._. ._. ._. \r\n" + 
-				"  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-				" \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				")  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                          \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                                      .__         ._. ._. ._. \r
+                                     __ __  __  _  _|__| ____   | | | | | | \r
+                                    \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                   )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   |____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                             \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("                     .__         ._. ._. ._. \r\n" + 
-				"__  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-				" \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"_/|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                            \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                                        .__         ._. ._. ._. \r
+                                   __  __ __  __  _  _|__| ____   | | | | | | \r
+                                    \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                   > )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   _/|____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                               \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println(".                      .__         ._. ._. ._. \r\n" + 
-				"____  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-				" _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"<_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"___/|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                              \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                   .                      .__         ._. ._. ._. \r
+                                   ____  __ __  __  _  _|__| ____   | | | | | | \r
+                                    _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                   <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   ___/|____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                                 \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("__.                      .__         ._. ._. ._. \r\n" + 
-				"| ____  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-				"/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                                \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                   __.                      .__         ._. ._. ._. \r
+                                   | ____  __ __  __  _  _|__| ____   | | | | | | \r
+                                   /  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                     <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   \\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                                   \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("__.                      .__         ._. ._. ._. \r\n" + 
-				"  | ____  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-				" |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				" (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"_|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                                  \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                   __.                      .__         ._. ._. ._. \r
+                                     | ____  __ __  __  _  _|__| ____   | | | | | | \r
+                                    |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                    (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   _|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                                     \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println(".___.                      .__         ._. ._. ._. \r\n" + 
-				"|   | ____  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-				"   |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"   (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"___|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                                    \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                   .___.                      .__         ._. ._. ._. \r
+                                   |   | ____  __ __  __  _  _|__| ____   | | | | | | \r
+                                      |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                      (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   ___|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                                       \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("__.___.                      .__         ._. ._. ._. \r\n" + 
-				"  |   | ____  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-				" |   |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-				"__   (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-				"_____|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-				"                                    \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                   __.___.                      .__         ._. ._. ._. \r
+                                     |   | ____  __ __  __  _  _|__| ____   | | | | | | \r
+                                    |   |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                   __   (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                   _____|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                                                       \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println("____.___.                      .__         ._. ._. ._. \r\n" + 
-						"__  |   | ____  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-						"   |   |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-						"____   (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-						" ______|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-						"/                                     \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                   ____.___.                      .__         ._. ._. ._. \r
+                                   __  |   | ____  __ __  __  _  _|__| ____   | | | | | | \r
+                                      |   |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                   ____   (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                    ______|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                   /                                     \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(100);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
-		System.out.println(" _____.___.                      .__         ._. ._. ._. \r\n" + 
-							"\\__  |   | ____  __ __  __  _  _|__| ____   | | | | | | \r\n" + 
-							" /   |   |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r\n" + 
-							" \\____   (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r\n" + 
-							" / ______|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r\n" + 
-							" \\/                                     \\/   \\/  \\/  \\/ ");
+		System.out.println("""
+                                    _____.___.                      .__         ._. ._. ._. \r
+                                   \\__  |   | ____  __ __  __  _  _|__| ____   | | | | | | \r
+                                    /   |   |/  _ \\|  |  \\ \\ \\/ \\/ /  |/    \\  | | | | | | \r
+                                    \\____   (  <_> )  |  /  \\     /|  |   |  \\  \\|  \\|  \\| \r
+                                    / ______|\\____/|____/    \\/\\_/ |__|___|  /  __  __  __ \r
+                                    \\/                                     \\/   \\/  \\/  \\/ """);
 		try{
 			Thread.sleep(500);
-		}catch(Exception e) {
+		}catch(InterruptedException e) {
 			System.out.println();
 		}
 }public static void gameOverAnimation(int[] coordinates) {
-	System.out.println(" ________                                                  \r\n" + 
-			" /  _____/_____    _____   ____     _______  __ ___________ \r\n" + 
-			"/   \\  ___\\__  \\  /     \\_/ __ \\   /  _ \\  \\/ // __ \\_  __ \\\r\n" + 
-			"\\    \\_\\  \\/ __ \\|  Y Y  \\  ___/  (  <_> )   /\\  ___/|  | \\/\r\n" + 
-			" \\______  (____  /__|_|  /\\___  >  \\____/ \\_/  \\___  >__|   \r\n" + 
-			"        \\/     \\/      \\/     \\/                   \\/  ");
+	System.out.println("""
+                            ________                                                  \r
+                            /  _____/_____    _____   ____     _______  __ ___________ \r
+                           /   \\  ___\\__  \\  /     \\_/ __ \\   /  _ \\  \\/ // __ \\_  __ \\\r
+                           \\    \\_\\  \\/ __ \\|  Y Y  \\  ___/  (  <_> )   /\\  ___/|  | \\/\r
+                            \\______  (____  /__|_|  /\\___  >  \\____/ \\_/  \\___  >__|   \r
+                                   \\/     \\/      \\/     \\/                   \\/  """);
 	try{
 		Thread.sleep(500);
-	}catch(Exception e) {
+	}catch(InterruptedException e) {
 		System.out.println();
 	}
 	
@@ -2366,4 +2339,3 @@ public class BattleshipLogic {
 }
 
 }
-
