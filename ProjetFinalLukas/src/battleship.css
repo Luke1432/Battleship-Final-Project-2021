@@ -1,0 +1,63 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #container {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+  
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 5px;
+    margin: 20px auto;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .cell {
+    width: 40px;
+    height: 40px;
+    background-color: #d9edf7;
+    border: 1px solid #0275d8;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .cell.hit {
+    background-color: red;
+  }
+  
+  .cell.miss {
+    background-color: blue;
+  }
+  
+  #game-over {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
